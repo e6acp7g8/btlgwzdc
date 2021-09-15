@@ -1,0 +1,29 @@
+general:
+  stop_time: 10
+network:
+  graph:
+    type: gml
+    inline: |
+      graph [
+        directed 0
+        node [
+          id 0
+          country_code "US"
+          bandwidth_down "81920 Kibit"
+          bandwidth_up "81920 Kibit"
+        ]
+        edge [
+          source 0
+          target 0
+          latency "50 ms"
+          packet_loss 0.0
+        ]
+      ]
+hosts:
+  peer:
+    quantity: 10
+    processes:
+    - path: test-phold
+      args: loglevel=info basename=peer quantity=10 msgload=1 cpuload=1 size=1
+        weightsfilepath=../../../weights.txt runtime=5
+      start_time: 1

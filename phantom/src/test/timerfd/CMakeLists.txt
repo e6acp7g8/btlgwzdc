@@ -1,0 +1,5 @@
+include_directories(${GLIB_INCLUDES})
+add_executable(test-timerfd test_timerfd.c)
+target_link_libraries(test-timerfd ${GLIB_LIBRARIES})
+add_linux_tests(BASENAME timerfd COMMAND test-timerfd)
+add_shadow_tests(BASENAME timerfd)
